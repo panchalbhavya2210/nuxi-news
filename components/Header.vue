@@ -42,8 +42,8 @@ const q = ref('')
             </div>
 
         </div>
-        <NuxtLink to="/news">
+        <!-- <NuxtLink to="/news">
             GO News
-        </NuxtLink>
+        </NuxtLink> -->
     </div>
 </template>

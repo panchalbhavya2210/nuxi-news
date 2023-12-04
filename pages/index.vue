@@ -4,8 +4,6 @@ const route = useRoute()
 
 <template>
   <div>
-    <button>
-
-    </button>
+    <News />
   </div>
 </template>
