@@ -2,6 +2,7 @@
 <script setup lang="ts">
 const q = ref('')
 
+
 // const data = await useFetch('/api/autocomp')
 
 // const { data: prd } = await useFetch('https://fakestoreapi.com/products')
@@ -19,26 +20,13 @@ const q = ref('')
                 <img src="~/assets/icon/logo.svg" alt=""
                     class="w-auto md:h-5 lg:h-5 h-8  md:ml-5 lg:ml-5 mx-auto pointer-events-none">
             </div>
-            <div class="img mt-5  md:mt-0 lg:mt-0">
-                <UInput v-model="q" name="q" class="md:w-96 lg:w-96 w-full mx-auto" color="blue"
-                    placeholder="Search By Topic/Channel..." icon="i-heroicons-magnifying-glass-20-solid" autocomplete="off"
-                    :ui="{ icon: { trailing: { pointer: '' } } }">
-                    <template #trailing>
-                        <UButton v-show="q !== ''" color="gray" variant="link" icon="i-heroicons-x-mark-20-solid"
-                            :padded="false" @click="q = ''" />
-                    </template>
-                </UInput>
 
-            </div>
             <div class="img mr-10 md:block lg:block hidden">
                 <!-- <NuxtLink to="/api/login" external>
-                    <UAvatar src="https://avatars.githubusercontent.com/u/94476517?v=4" alt="Avatar" size="md" />
-                </NuxtLink>
-                <NuxtLink to="/api/register" external>
+                </NuxtLink>-->
 
-                    <UAvatar src={{ $auth.user.picture }} alt="Avatar" size="md" />
+                <UAvatar :src=$auth.user.picture alt="Avatar" size="md" />
 
-                </NuxtLink> -->
             </div>
 
         </div>
