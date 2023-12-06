@@ -1,9 +1,13 @@
 <script setup lang="ts">
 const route = useRoute()
+
+
 </script>
 
 <template>
   <div>
-    <News />
+    <NuxtLink to="/news">
+      Go to news
+    </NuxtLink>
   </div>
 </template>

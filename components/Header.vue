@@ -25,7 +25,7 @@ const q = ref('')
                 <!-- <NuxtLink to="/api/login" external>
                 </NuxtLink>-->
 
-                <UAvatar :src=$auth.user.picture alt="Avatar" size="md" />
+                <!-- <UAvatar :src=$auth.user.picture alt="Avatar" size="md" /> -->
 
             </div>
 
