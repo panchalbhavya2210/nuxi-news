@@ -6,8 +6,6 @@ const route = useRoute()
 
 <template>
   <div>
-    <NuxtLink to="/news">
-      Go to news
-    </NuxtLink>
+    <news />
   </div>
 </template>

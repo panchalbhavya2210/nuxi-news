@@ -25,11 +25,6 @@ const q = ref('')
                 <!-- <NuxtLink to="/api/login" external>
                 </NuxtLink>-->
 
-<<<<<<< HEAD
-                <!-- <UAvatar :src=$auth.user.picture alt="Avatar" size="md" /> -->
-=======
-                
->>>>>>> b7311afb45a2a8df199645312fef753362a05975
 
             </div>
 

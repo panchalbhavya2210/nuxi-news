@@ -1,0 +1,50 @@
+<script setup lang="ts">
+const runTC = useRuntimeConfig()
+
+let q = ref('')
+
+let arr
+let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${runTC.public.secret}`;
+const { data: news } = await useFetch(url)
+arr = news.value.articles
+console.log(arr)
+async function fetchForCategory() {
+    var url = `https://newsapi.org/v2/everything?q=${q.value}&apiKey=${runTC.public.secret}`;
+
+    const { data: news } = await useFetch(url)
+    console.log(news)
+
+    arr = news.value.articles
+
+}
+</script>
+
+<template>
+    <div class="img mt-5  md:mt-0 lg:mt-0 relative sm:-top-16 md:-top-11 lg:-top-11">
+        <UInput v-model="q" name="q" class="md:w-96 lg:w-96 w-full mx-auto" color="blue" v-on:input="fetchForCategory"
+            placeholder="Search By Topic/Channel..." icon="i-heroicons-magnifying-glass-20-solid" autocomplete="off"
+            :ui="{ icon: { trailing: { pointer: '' } } }">
+            <template #trailing>
+                <UButton v-show="q !== ''" color="gray" variant="link" icon="i-heroicons-x-mark-20-solid" :padded="false"
+                    @click="q = ''" />
+            </template>
+        </UInput>
+
+    </div>
+    <h1 class="p-5 text-3xl underline">Top Headlines</h1>
+    <div
+        class="sm:grid sm:grid-cols-3 sm:gap-4 sm:p-5 md:grid md:grid-cols-3 md:gap-4 md:p-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:p-5 p-5">
+        <div v-for="newss in arr" class="">
+            <div class="bg-gray-800 p-3 rounded-md my-5">
+                <a :href="newss.url" target="_blank">
+                    <div class="img w-full h-56">
+                        <img v-if="newss.urlToImage != null" :src="newss.urlToImage" alt="" class="h-full w-full">
+                        <UAvatar v-else icon="i-heroicons-photo" class="w-full h-full" size="3xl"></UAvatar>
+                    </div>
+                    <p class="my-2">{{ newss.title }}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</template>
+
