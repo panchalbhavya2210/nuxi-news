@@ -1,34 +1,40 @@
 <script setup lang="ts">
 const runTC = useRuntimeConfig()
 
+
+
 let q = ref('')
 
-let arr
-let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${runTC.public.secret}`;
-const { data: news } = await useFetch(url)
-arr = news.value.articles
-console.log(arr)
+let arr;
+// let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${runTC.public.secret}`;
+// const { data: news } = await useFetch(url)
+// //@ts-ignore
+// arr = news.value.articles
+
 async function fetchForCategory() {
+
     var url = `https://newsapi.org/v2/everything?q=${q.value}&apiKey=${runTC.public.secret}`;
 
     const { data: news } = await useFetch(url)
     console.log(news)
-
+    //@ts-ignore
     arr = news.value.articles
-
+    console.log(arr)
 }
 </script>
 
 <template>
-    <div class="img mt-5  md:mt-0 lg:mt-0 relative sm:-top-16 md:-top-11 lg:-top-11">
-        <UInput v-model="q" name="q" class="md:w-96 lg:w-96 w-full mx-auto" color="blue" v-on:input="fetchForCategory"
+    <div class="img mt-5  md:mt-0 relative -top-24 sm:-top-24 md:-top-16 lg:-top-20 lg:mt-2">
+        <input type="text" v-model="q" name="q">
+        <button :onclick="fetchForCategory">Search</button>
+        <!-- <UInput v-model="q" name="q" class="md:w-96 lg:w-96 w-full mx-auto" color="blue" v-on:input="fetchForCategory"
             placeholder="Search By Topic/Channel..." icon="i-heroicons-magnifying-glass-20-solid" autocomplete="off"
             :ui="{ icon: { trailing: { pointer: '' } } }">
             <template #trailing>
                 <UButton v-show="q !== ''" color="gray" variant="link" icon="i-heroicons-x-mark-20-solid" :padded="false"
                     @click="q = ''" />
             </template>
-        </UInput>
+        </UInput> -->
 
     </div>
     <h1 class="p-5 text-3xl underline">Top Headlines</h1>
