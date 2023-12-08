@@ -22,13 +22,6 @@ async function fetchForCategory() {
     console.log(news)
     //@ts-ignore
     arr.value = news.value.articles
-
-    if (arr.value.length == 0) {
-        loadState = true
-    }
-    else {
-        loadState = false
-    }
 }
 </script>
 
