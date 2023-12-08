@@ -9,9 +9,9 @@ export default defineNuxtConfig({
   }
  },
  googleFonts: {
-  display: 'swap',
   families: {
-    Raleway: true,
-  }
+    Poppins: true,
+  },
+  display: 'swap',
  }
 })
