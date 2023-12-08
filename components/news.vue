@@ -17,7 +17,7 @@ arr.value = news.value.articles
 
 async function fetchForCategory() {
     var url = `https://newsapi.org/v2/everything?q=${q.value}&apiKey=${runTC.public.secret}`;
-
+    console.log(url)
     const { data: news } = await useFetch(url)
     console.log(news)
     //@ts-ignore
