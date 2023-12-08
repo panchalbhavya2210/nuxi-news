@@ -33,11 +33,8 @@ async function fetchForCategory() {
                     color="blue"></UInput>
                 <img src="~/assets/icon/search.svg" alt="" @click="fetchForCategory()"
                     class="absolute w-auto h-5 right-2 cursor-pointer">
-
-
             </div>
         </div>
-        <!-- <button @click="fetchForCategory()">Search</button> -->
     </div>
 
 
