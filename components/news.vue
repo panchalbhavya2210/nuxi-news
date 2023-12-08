@@ -1,7 +1,10 @@
 <script setup lang="ts">
 const runTC = useRuntimeConfig()
 
-
+/**
+ * todo : search error in website but not on localhost solve
+ * 
+ */
 
 let q = ref('')
 
@@ -15,20 +18,16 @@ arr.value = news.value.articles
 async function fetchForCategory() {
     var url = `https://newsapi.org/v2/everything?q=${q.value}&apiKey=${runTC.public.secret}`;
 
-    try {
-        const { data: news } = await useFetch(url)
-        console.log(news)
-        //@ts-ignore
-        arr.value = news.value.articles
+    const { data: news } = await useFetch(url)
+    console.log(news)
+    //@ts-ignore
+    arr.value = news.value.articles
 
-        if (arr.value.length == 0) {
-            loadState = true
-        }
-        else {
-            loadState = false
-        }
-    } catch (e) {
-        console.log(e)
+    if (arr.value.length == 0) {
+        loadState = true
+    }
+    else {
+        loadState = false
     }
 }
 </script>
