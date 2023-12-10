@@ -2,7 +2,7 @@
 const runTC = useRuntimeConfig()
 
 /**
- * todo : search error in website but not on localhost solve
+ * todo : search error in website but not on localhost solve [can't be solved] (reason : api upgrade)
  * 
  */
 
@@ -15,34 +15,15 @@ const { data: news } = await useFetch(url)
 //@ts-ignore
 arr.value = news.value.articles
 
-async function fetchForCategory() {
-    var url = `https://newsapi.org/v2/everything?q=${q.value}&apiKey=${runTC.public.secret}`;
-    console.log(url)
-    const { data: news } = await useFetch(url)
-    console.log(news)
-    //@ts-ignore
-    arr.value = news.value.articles
-}
+
 </script>
 
 <template>
-    <div class="img mt-5  md:mt-0 relative -top-24 sm:-top-24 md:-top-16 lg:-top-20 lg:mt-2">
-        <div class="inpfield relative w-full flex justify-center items-center">
-            <div class="w-96 relative flex items-center">
-                <UInput type="text" v-model="q" name="q" class="w-96 p-1 outline-blue-400" placeholder="Search News..."
-                    color="blue"></UInput>
-                <img src="~/assets/icon/search.svg" alt="" @click="fetchForCategory()"
-                    class="absolute w-auto h-5 right-2 cursor-pointer">
-            </div>
-        </div>
-    </div>
-
-
     <div v-if="loadState == true">
         <UTable :empty-state="{ icon: 'i-heroicons-circle-stack-20-solid', label: `No news available for ${q}.` }"
             class="w-full" />
     </div>
-    <h1 class="p-5 text-3xl underline">Top Headlines</h1>
+    <h1 class="p-5 text-3xl underline">Top Headlines India</h1>
     <div
         class="sm:grid sm:grid-cols-3 sm:gap-4 sm:p-5 md:grid md:grid-cols-3 md:gap-4 md:p-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:p-5 p-5">
         <div v-for="newss in arr" class="">

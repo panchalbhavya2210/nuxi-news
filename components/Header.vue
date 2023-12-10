@@ -29,8 +29,5 @@ const q = ref('')
             </div>
 
         </div>
-        <NuxtLink to="/sources">
-            GO Source
-        </NuxtLink>
     </div>
 </template>
